@@ -3,12 +3,12 @@ import { useRoute } from "../../../vendor/tightenco/ziggy";
 
 export default function Show({ post }) {
     const { delete: destroy } = useForm();
-    const route = useRoute();
+    const route = useRoute(); //state function from Ziggy package
 
     function submit(e) {
         e.preventDefault();
-        // destroy(`/posts/${post.id}`);
-        destroy(route("posts.destroy", post));
+        // destroy(`/posts/${post.id}`);        //hardcoded routes
+        destroy(route("posts.destroy", post)); //route function from Ziggy package
     }
 
     return (
@@ -29,13 +29,13 @@ export default function Show({ post }) {
                         </button>
                     </form>
                     {/* <Link
-                        href={`/posts/${post.id}/edit`}
+                        href={`/posts/${post.id}/edit`}         //hard coded routes
                         className="bg-green-500 rounded-md text-sm px-4 py-1 text-white"
                     >
                         Update
                     </Link> */}
                     <Link
-                        href={route(`posts.edit`, post)}
+                        href={route(`posts.edit`, post)} //route function from the Ziggy package
                         className="bg-green-500 rounded-md text-sm px-4 py-1 text-white"
                     >
                         Update

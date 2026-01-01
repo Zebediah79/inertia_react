@@ -5,12 +5,12 @@ export default function Create({ post }) {
     const { data, setData, put, errors, processing } = useForm({
         body: post.body,
     });
-    const route = useRoute();
+    const route = useRoute(); //useRoute method from Ziggy package
 
     function submit(e) {
         e.preventDefault();
-        // put(`/posts/${post.id}`);
-        put(route("posts.update", post));
+        // put(`/posts/${post.id}`);        //hardcoded routes
+        put(route("posts.update", post)); //useRoute method from Ziggy package
     }
 
     return (
